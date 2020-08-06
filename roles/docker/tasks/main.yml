@@ -1,0 +1,6 @@
+---
+
+- name: Install docker
+  apt:
+    pkg: docker
+    state: present

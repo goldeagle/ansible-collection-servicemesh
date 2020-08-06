@@ -1,0 +1,6 @@
+---
+
+- name: Install git
+  apt:
+    pkg: git
+    state: present

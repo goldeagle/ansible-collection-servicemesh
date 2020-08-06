@@ -1,0 +1,40 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: "Bison 'goldeagle' Fan"
+  description: "docker role"
+  company: "bitseed.cn"
+  license: "license (Apache-2.0)"
+  min_ansible_version: 2.9
+  platforms:
+    - name: centos
+      versions:
+        - 7
+        - 8
+    - name: debian
+      versions:
+        - all
+    - name: fedora
+      versions:
+        - all
+    - name: gentoo
+      versions:
+        - all
+    - name: kali
+      versions:
+        - all
+    - name: macos
+      versions:
+        - all
+    - name: ubuntu
+      versions:
+        - bionic
+        - focal
+  galaxy_tags:
+    - daemon
+    - development
+    - docker
+    - container
+    - lxc
+    - "virtual machine"

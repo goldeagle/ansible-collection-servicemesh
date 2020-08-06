@@ -1,0 +1,6 @@
+---
+
+- name: Install rkt
+  apt:
+    pkg: rkt
+    state: present
