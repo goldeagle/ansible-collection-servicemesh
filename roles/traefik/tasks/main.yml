@@ -1,1 +1,31 @@
 ---
+
+- name: Download binary file
+  get_url:
+    url:  "https://github.com/traefik/traefik/releases/download/v{{ traefik_version }}/traefik_v{{ traefik_version }}_linux_amd64.tar.gz"
+    dest: "/tmp/traefik.tar.gz"
+    mode: "0644"
+    checksum: "sha256:{{ traefik_sha256sum }}"
+
+- name: Make traefik directory
+  file:
+    path: "{{ traefik_directory }}"
+    state: directory
+    mode: 0755
+
+- name: Install traefik
+  unarchive:
+    src: "/tmp/traefik.tar.gz"
+    dest: "{{ traefik_directory }}"
+    remote_src: yes
+
+- name: Link traefik binary file
+  file:
+    src: "{{ traefik_directory }}/traefik"
+    dest: "/usr/local/bin/traefik"
+    state: link
+
+- name: Cleanup traefik tar file
+  file:
+    path: "/tmp/traefik.tar.gz"
+    state: absent

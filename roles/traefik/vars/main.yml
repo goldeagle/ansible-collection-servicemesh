@@ -1,0 +1,5 @@
+---
+
+traefik_version: "2.3.1"
+traefik_sha256sum: "cd79054dc2ad61e9d1351e3ae3adc1105eceb068592bbd625679f3c143e54e3a"
+traefik_directory: "/opt/traefik"
