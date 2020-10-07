@@ -31,7 +31,7 @@ galaxy_info:
         - bionic
         - focal
   galaxy_tags:
-    - "service mesh"
+    - servicemesh
     - traefik
     - proxy
     - http

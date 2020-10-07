@@ -33,7 +33,7 @@ galaxy_info:
         - focal
   galaxy_tags:
     - development
-    - "service mesh"
+    - servicemesh
     - kubenetes
     - k8s
     - docker
