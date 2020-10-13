@@ -58,6 +58,10 @@ Usually in combination with changing `docker_yum_repository` as well.
 
 A list of system users to be added to the `docker` group (so they can use Docker on the server).
 
+You can set docker data root path with `docker_data_root`:
+
+    docker_data_root: /home/bison/data/docker
+
 ## Use with Ansible (and `docker` Python library)
 
 Many users of this role wish to also use Ansible to then _build_ Docker images and manage Docker containers on the server where Docker is installed. In this case, you can easily add in the `docker` Python library using the `goldeagle.devlop.pip` role:

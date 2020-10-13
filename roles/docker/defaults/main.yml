@@ -29,3 +29,6 @@ docker_yum_gpg_key: https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/
 
 # A list of users who will be added to the docker group.
 docker_users: []
+
+# Docker data file path
+docker_data_root: "/var/lib/docker"
