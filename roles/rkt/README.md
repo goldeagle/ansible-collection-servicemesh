@@ -1,8 +1,6 @@
-# Ansible Role: Tig
+# Ansible Role: RKT
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-php-mysql.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-php-mysql)
-
-Installs tig (https://www.mysql.com/) support on Linux.
+Installs rkt (https://www.coreos.com/rkt/) support on Linux.
 
 ## Requirements
 
@@ -20,7 +18,7 @@ NONE
 
     - hosts: all
       roles:
-        - { role: goldeagle.tig }
+        - { role: goldeagle.servicemesh.rkt }
 
 ## License
 

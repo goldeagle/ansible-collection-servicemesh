@@ -1,0 +1,41 @@
+---
+
+- name: Download CoreDNS binary file (ARM64)
+  get_url:
+    url:  "{{ coredns_url }}/coredns_{{ coredns_version }}_linux_arm64.tgz"
+    dest: "/tmp/coredns.tgz"
+    mode: "0644"
+  when:
+    - ansible_architecture == "aarch64"
+
+- name: Download CoreDNS binary file (AMD64)
+  get_url:
+    url:  "{{ coredns_url }}/coredns_{{ coredns_version }}_linux_amd64.tgz"
+    dest: "/tmp/coredns.tgz"
+    mode: "0644"
+  when:
+    - ansible_architecture == "x86_64"
+
+- name: Make CoreDNS directory
+  file:
+    path: "{{ coredns_directory }}"
+    state: directory
+    mode: 0755
+
+- name: Install CoreDNS
+  unarchive:
+    src: "/tmp/CoreDNS.tar.gz"
+    dest: "{{ coredns_directory }}"
+    remote_src: yes
+
+- name: Link CoreDNS binary file
+  file:
+    src: "{{ coredns_directory }}/coredns"
+    dest: "/usr/local/bin/coredns"
+    state: link
+
+- name: Cleanup CoreDNS tar file
+  file:
+    path: "/tmp/coredns.tgz"
+    state: absent
+    

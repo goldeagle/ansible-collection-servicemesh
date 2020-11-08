@@ -1,0 +1,41 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: "Bison 'goldeagle' Fan"
+  description: "coredns role"
+  company: "bitseed.cn"
+  license: "license (MIT)"
+  min_ansible_version: 2.9
+  platforms:
+    - name: centos
+      versions:
+        - 8
+    - name: debian
+      versions:
+        - all
+    - name: fedora
+      versions:
+        - all
+    - name: gentoo
+      versions:
+        - all
+    - name: kali
+      versions:
+        - all
+    - name: macos
+      versions:
+        - all
+    - name: ubuntu
+      versions:
+        - bionic
+        - focal
+  galaxy_tags:
+    - cli
+    - development
+    - vcs
+    - rkt
+    - docker
+    - container
+    - lxc
+    - "virtual machine"
