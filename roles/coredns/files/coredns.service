@@ -1,0 +1,9 @@
+[Unit]
+Description=CoreDNS
+
+[Service]
+Restart=on-failure
+ExecStart=/usr/local/bin/coredns -conf /etc/coredns/coredns.cfg
+
+[Install]
+WantedBy=multi-user.target

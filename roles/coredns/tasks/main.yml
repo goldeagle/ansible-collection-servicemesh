@@ -34,6 +34,17 @@
     dest: "/usr/local/bin/coredns"
     state: link
 
+- name: Copy CoreDNS config file
+  copy:
+    src: "coredns.cfg"
+    dest: "/etc/coredns/coredns.cfg"
+
+- name: Copy CoreDNS service file
+  copy:
+    src: "coredns.service"
+    dest: "/sur/lib/systemd/system/coredns.service"
+  notify: start coredns
+
 - name: Cleanup CoreDNS tar file
   file:
     path: "/tmp/coredns.tgz"

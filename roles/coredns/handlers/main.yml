@@ -1,0 +1,13 @@
+---
+
+- name: start coredns
+  service:
+    name: coredns
+    state: started
+    enabled: yes
+
+- name: restart coredns
+  service:
+    name: coredns
+    state: restarted
+    enabled: yes
