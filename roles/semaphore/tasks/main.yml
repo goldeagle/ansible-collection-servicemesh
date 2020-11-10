@@ -1,0 +1,52 @@
+---
+
+- name: Download Semaphore binary file (ARM64)
+  get_url:
+    url:  "{{ semaphore_url }}/semaphore_{{ semaphore_version }}_linux_arm64.tgz"
+    dest: "/tmp/semaphore.tgz"
+    mode: "0644"
+  when:
+    - ansible_architecture == "aarch64"
+
+- name: Download Semaphore binary file (AMD64)
+  get_url:
+    url:  "{{ semaphore_url }}/semaphore_{{ semaphore_version }}_linux_amd64.tgz"
+    dest: "/tmp/semaphore.tgz"
+    mode: "0644"
+  when:
+    - ansible_architecture == "x86_64"
+
+- name: Make Semaphore directory
+  file:
+    path: "{{ semaphore_directory }}"
+    state: directory
+    mode: 0755
+
+- name: Install Semaphore
+  unarchive:
+    src: "/tmp/Semaphore.tar.gz"
+    dest: "{{ semaphore_directory }}"
+    remote_src: yes
+
+- name: Link Semaphore binary file
+  file:
+    src: "{{ semaphore_directory }}/semaphore"
+    dest: "/usr/local/bin/semaphore"
+    state: link
+
+- name: Copy Semaphore config file
+  copy:
+    src: "semaphore.cfg"
+    dest: "/etc/semaphore/semaphore.cfg"
+
+- name: Copy Semaphore service file
+  copy:
+    src: "semaphore.service"
+    dest: "/sur/lib/systemd/system/semaphore.service"
+  notify: start semaphore
+
+- name: Cleanup Semaphore tar file
+  file:
+    path: "/tmp/semaphore.tgz"
+    state: absent
+    

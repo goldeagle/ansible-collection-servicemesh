@@ -1,0 +1,13 @@
+---
+
+- name: start semaphore
+  service:
+    name: semaphore
+    state: started
+    enabled: yes
+
+- name: restart semaphore
+  service:
+    name: semaphore
+    state: restarted
+    enabled: yes
