@@ -2,4 +2,4 @@
 
 semaphore_version: "2.5.3"
 semaphore_directory: "/opt/semaphore"
-semaphore_url: "https://github.com/ansible-semaphore/semaphore/releases/download/v{{ semaphore_version }}/semaphore_{{ semaphore_version }}_linux_amd64.tar.gz"
+semaphore_url: "https://github.com/ansible-semaphore/semaphore/releases/download/v{{ semaphore_version }}"

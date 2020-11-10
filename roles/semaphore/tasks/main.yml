@@ -2,16 +2,16 @@
 
 - name: Download Semaphore binary file (ARM64)
   get_url:
-    url:  "{{ semaphore_url }}/semaphore_{{ semaphore_version }}_linux_arm64.tgz"
-    dest: "/tmp/semaphore.tgz"
+    url:  "{{ semaphore_url }}/semaphore_{{ semaphore_version }}_linux_arm64.tar.gz"
+    dest: "/tmp/semaphore.tar.gz"
     mode: "0644"
   when:
     - ansible_architecture == "aarch64"
 
 - name: Download Semaphore binary file (AMD64)
   get_url:
-    url:  "{{ semaphore_url }}/semaphore_{{ semaphore_version }}_linux_amd64.tgz"
-    dest: "/tmp/semaphore.tgz"
+    url:  "{{ semaphore_url }}/semaphore_{{ semaphore_version }}_linux_amd64.tar.gz"
+    dest: "/tmp/semaphore.tar.gz"
     mode: "0644"
   when:
     - ansible_architecture == "x86_64"
@@ -36,8 +36,8 @@
 
 - name: Copy Semaphore config file
   copy:
-    src: "semaphore.cfg"
-    dest: "/etc/semaphore/semaphore.cfg"
+    src: "config.json"
+    dest: "/etc/semaphore/config.json"
 
 - name: Copy Semaphore service file
   copy:
@@ -47,6 +47,6 @@
 
 - name: Cleanup Semaphore tar file
   file:
-    path: "/tmp/semaphore.tgz"
+    path: "/tmp/semaphore.tar.gz"
     state: absent
     
