@@ -1,6 +1,6 @@
 ---
 
-- name: Get cmake source codes
+- name: Get k0s source codes
   git:
     repo:  "https://gitee.com/bison-fork/k0s"
     dest: "/tmp/k0s"
