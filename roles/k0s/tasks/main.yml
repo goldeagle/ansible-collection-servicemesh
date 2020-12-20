@@ -1,0 +1,22 @@
+---
+
+- name: Get cmake source codes
+  git:
+    repo:  "https://gitee.com/bison-fork/k0s"
+    dest: "/tmp/k0s"
+    update: yes
+
+- name: Compile k0s
+  shell:
+    cmd: "make EMBEDDED_BINS_BUILDMODE=none -j$(nproc)"
+    chdir: "/tmp/k0s"
+
+- name: Install k0s
+  copy:
+    src: "/tmp/k0s/k0s"
+    dest: "/usr/local/bin/k0s"
+
+- name: Remove k0s temporary directory
+  file:
+    path: "/tmp/k0s"
+    state: absent
